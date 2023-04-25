@@ -23,6 +23,11 @@ function addBookToLibrary(book) {
   deleteBookBtn.innerText = "Delete";
   deleteBookBtn.classList.add("delete-book-btn");
   bookItem.appendChild(deleteBookBtn);
+  deleteBookBtn.addEventListener("click", () => {
+    console.log("delete");
+    // Delete the parent element of the button when it's clicked
+    deleteBookBtn.parentNode.remove();
+  });
 }
 
 // add new book button
