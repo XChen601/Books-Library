@@ -18,6 +18,22 @@ function addBookToLibrary(book) {
   bookItem.innerText = book.info();
   bookList.appendChild(bookItem);
 
+  // create a button to change read status
+  const readStatusBtn = document.createElement("button");
+  readStatusBtn.innerText = book.read;
+  readStatusBtn.classList.add("read-status-btn");
+  bookItem.appendChild(readStatusBtn);
+  readStatusBtn.addEventListener("click", () => {
+    console.log("read");
+    if (book.read === "read") {
+      book.read = "not read yet";
+      readStatusBtn.innerText = book.read;
+    } else {
+      book.read = "read";
+      readStatusBtn.innerText = book.read;
+    }
+  });
+
   // create a button to remove the book
   const deleteBookBtn = document.createElement("button");
   deleteBookBtn.innerText = "Delete";
